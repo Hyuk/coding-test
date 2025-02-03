@@ -4,7 +4,7 @@ func solution(_ dartResult: String) -> Int {
     // 입력 문자열을 문자 배열로 변환하여 인덱스로 접근할 수 있도록 함
     let chars: [Character] = Array(dartResult)
     // 문자열에서 현재 처리할 위치를 나타내는 인덱스 변수
-    var i = 0
+    var i: Int = 0
 
     // 다트 게임은 총 3번의 기회(라운드)로 구성되므로 3번 반복
     for _ in 0..<3 {
@@ -23,7 +23,7 @@ func solution(_ dartResult: String) -> Int {
         
         // 2. 보너스 처리:
         // 다음 문자는 보너스 영역 문자(S, D, T)임
-        let bonus = chars[i]
+        let bonus: Character = chars[i]
         var point: Int = 0
         // 보너스 문자에 따라 점수를 계산
         // S: 단순, D: 제곱, T: 세제곱
@@ -64,7 +64,7 @@ func solution(_ dartResult: String) -> Int {
     // 4. 총 점수 계산:
     // 각 기회의 점수를 모두 합산
     var total: Int = 0
-    for point in points {
+    for point: Int in points {
         total += point
     }
     
@@ -84,7 +84,7 @@ let testCases: [(String, Int)] = [
 ]
 
 // 각 테스트 케이스에 대해 solution 함수를 실행하고 결과를 출력
-for (input, expected) in testCases {
+for (input, expected): (String, Int) in testCases {
     let result: Int = solution(input)
     print("Input: \(input) → 결과: \(result) (예상: \(expected))")
 }
